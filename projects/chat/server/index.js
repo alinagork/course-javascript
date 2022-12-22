@@ -4,7 +4,9 @@ const { Server } = require('ws');
 const server = http.createServer(async (req, res) => {
   res.end('ok');
 });
-const wss = new Server({ server });
+const wss = new Server({ port: 8000 }, () => {
+  console.log('Server started');
+});
 const connections = new Map();
 
 wss.on('connection', (socket) => {
@@ -57,4 +59,4 @@ function sendMessageFrom(connections, message, from, excludeSelf) {
   }
 }
 
-server.listen(8082);
+server.listen(8000);

@@ -9,7 +9,7 @@ import WSClient from './wsClient';
 export default class Chat {
   constructor() {
     this.wsClient = new WSClient(
-      `ws://${location.host}/chat/ws`,
+      `ws://localhost:8081/chat/ws`,
       this.onMessage.bind(this)
     );
 

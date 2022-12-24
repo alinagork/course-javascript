@@ -100,6 +100,6 @@ function sendMessageFrom(connections, message, from, excludeSelf) {
   }
 }
 
-server.listen(8080, () => {
+server.listen(8082, () => {
   console.log('Server started');
 });

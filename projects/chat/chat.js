@@ -10,7 +10,7 @@ import WSClient from './wsClient';
 export default class Chat {
   constructor() {
     this.wsClient = new WSClient(
-      `ws://localhost:8080/chat/ws`,
+      `ws://localhost:8082/chat/ws`,
       this.onMessage.bind(this)
     );
 
@@ -39,7 +39,7 @@ export default class Chat {
   onUpload(data) {
     this.ui.userPhoto.set(data);
 
-    fetch('/chat/upload-photo', {
+    fetch('/chat/photos', {
       method: 'post',
       body: JSON.stringify({
         name: this.ui.userName.get(),
@@ -82,7 +82,7 @@ export default class Chat {
       );
 
       for (const avatar of avatars) {
-        avatar.style.backgroundImage = `url(./chat/photos/${
+        avatar.style.backgroundImage = `url(./photos/${
           data.name
         }.png?t=${Date.now()})`;
       }
